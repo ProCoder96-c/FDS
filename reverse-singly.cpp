@@ -6,7 +6,7 @@ class Node
         int data;
         Node* next;
 };
-Node* head=NULL,*temp=NULL,*curr=NULL,*next=NULL,*prev=NULL;
+Node* head=NULL,*temp=NULL,*curr=NULL,*nxt=NULL,*prv=NULL;
 void create()
 {
     int val,n;
@@ -26,7 +26,7 @@ void create()
         {
             temp=head;
             newNode->next=NULL;
-            if(temp->next!=NULL)
+            while(temp->next!=NULL)
             {
                 temp=temp->next;
             }
@@ -49,14 +49,17 @@ void reverse()
     curr=head;
     while(curr!=NULL)
     {
-        next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
+        nxt=curr->next;
+        curr->next=prv;
+        prv=curr;
+        curr=nxt;
     }
+    head=prv;
 }
 int main()
 {
     create();
+    display();
+    reverse();
     display();
 }

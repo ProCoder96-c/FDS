@@ -49,7 +49,10 @@ class Doubly
         if(pos==1)
         {
             newNode->next=head;
-            head->prev=newNode;
+            if(head!=NULL)
+            {
+                head->prev=newNode;
+            }
             head=newNode;
             newNode->prev=NULL;
             return;
@@ -83,6 +86,7 @@ class Doubly
         if(head==NULL)
         {
             head=tail=newNode;
+            return;
         }
         while(temp->next!=NULL)
         {
@@ -101,7 +105,10 @@ class Doubly
         }
         temp=head;
         head=head->next;
-        head->prev=NULL;
+        if(head!=NULL)
+        {
+            head->prev=NULL;
+        }
         delete temp;
         cout<<"\nDeleted Successfully"<<endl;
     }
@@ -111,10 +118,18 @@ class Doubly
         cout<<"Enter Position that Delete:"<<endl;
         cin>>pos;
         temp=head;
+        if(head==NULL)
+        {
+            cout<<"Linked List is Empty";
+            return;
+        }
         if(pos==1)
         {
             head=head->next;
-            head->prev=NULL;
+            if(head!=NULL)
+            {
+                head->prev=NULL;
+            }
             delete temp;
             cout<<"\nDeleted Successfully"<<endl;
             return;
@@ -147,8 +162,8 @@ class Doubly
         }
         if(head->next==NULL)
         {
-            head=NULL;
             delete head;
+            head=NULL;
             cout<<"Deleted.....";
             return;
         }

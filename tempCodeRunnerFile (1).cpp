@@ -18,7 +18,7 @@ void enque()
         queue[rear]=value;
         if(rear==0)
         {
-            front==0;
+            front=0;
         }
     }
 }
