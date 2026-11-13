@@ -145,14 +145,20 @@ void deleteAtPosition() {
         return;
     }
 
+    if(head == NULL) {
+        cout << "List is Empty\n";
+        return;
+    }
+
     Node *prev = NULL;
     temp = head;
-    for(int i = 1; i < pos && temp->next != head; i++) {
+    int i;
+    for(i = 1; i < pos && temp->next != head; i++) {
         prev = temp;
         temp = temp->next;
     }
 
-    if(temp->next == head && pos > 1) {
+    if(i < pos || pos < 1) {
         cout << "Position out of range!\n";
         return;
     }
